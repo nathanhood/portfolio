@@ -2,27 +2,44 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
   body
-    nav
-      ul
-        li: a(href='/') Home
-        li: a(href='/about') About
-        li: a(href='/faq') Faq
-        li: a(href='/contact') Contact
-        li: a(href='/resume') Resume
-        li: a(href='/login') Login
-        li: a(href='/projects') Portfolio
-        if(user)
-          li: a(href='/logout')= user.email
-          li: a(href='/projects/new') New Project
+    .navbar-wrapper
+      .container.target
+        .navbar.navbar-inverse.navbar-static-top
+          .navbar-header
+            a.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#')
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='/', contenteditable='false') Home
+              li
+                a(href='/about', contenteditable='false') About Me
+              li
+                a(href='/projects', style='', contenteditable='false') Projects
+              li
+                a(href='/contact', style='', contenteditable='false') Contact
+              if(user)
+                li
+                  a(href='/projects/new') Add Project
+                li
+                  a(href='/logout')= user.email
 
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
     script(src='/js/vendor/buttons.js')

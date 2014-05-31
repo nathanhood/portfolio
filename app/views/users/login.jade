@@ -1,9 +1,9 @@
 extends ../shared/template
 
 block content
-  h1 Login
-
-  form(action='/login', method='post')
-    input(type='email', autofocus=true, placeholder='Email Address', name='email')
-    input(type='password', placeholder='Password', name='password')
-    button Login
+  h1.login-title Login
+  .login-shell
+    form(action='/login', method='post')
+      input.form-control.login-email(type='email', autofocus=true, placeholder='Email Address', name='email')
+      input.form-control.login-password(type='password', placeholder='Password', name='password')
+      button.btn.btn-info Login
